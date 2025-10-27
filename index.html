@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 Meses de Amor 💘</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-y: auto;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+      color: #fff;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 50px;
+      font-size: 2.8em;
+      animation: glow 2s infinite alternate;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      font-weight: normal;
+      margin-top: -10px;
+      color: #ffe6f2;
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #fff, 0 0 20px #ff9a9e; }
+      to { text-shadow: 0 0 25px #fff, 0 0 40px #ff6f91; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #text {
+      margin-top: 40px;
+      font-size: 1.2em;
+      line-height: 1.6em;
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: left;
+      white-space: pre-line;
+      border: 2px solid rgba(255,255,255,0.2);
+      box-shadow: 0 0 15px rgba(255,255,255,0.1);
+    }
+
+    .heart {
+      position: fixed;
+      color: rgba(255,255,255,0.9);
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(1); opacity: 1; }
+      100% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      opacity: 0.8;
+      padding-bottom: 20px;
+    }
+
+    /* Player YouTube invisível */
+    #yt-player {
+      position: fixed;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Botão de play/pause */
+    #music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255,255,255,0.4);
+      color: #fff;
+      font-size: 1.5em;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 0 10px rgba(255,255,255,0.3);
+      transition: 0.3s;
+      user-select: none;
+    }
+
+    #music-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(255,255,255,0.5);
+    }
+  </style>
+</head>
+<body>
+  <h1>💞 Feliz 5 Meses, Meu Amor 💞</h1>
+  <h2>Para Camilla, com todo amor de Pablo 💖</h2>
+
+  <div id="text"></div>
+
+  <footer>Feito com ❤️ por Pablo para Camilla</footer>
+
+  <!-- Player do YouTube invisível -->
+  <iframe
+    id="yt-player"
+    src="https://www.youtube.com/embed/-BjZmE2gtdo?enablejsapi=1"
+    allow="autoplay"
+  ></iframe>
+
+  <!-- Botão de música -->
+  <div id="music-btn">💖</div>
+
+  <script>
+    // === Texto com efeito de digitação ===
+    const message = `Meu bem, já fazem 5 meses... Nossa, muito tempo se passou!
+Nesse último mês, a gente quase não se falou e também não se viu.
+Sinceramente, eu senti sua falta — mas isso só me fez perceber que eu te amo cada vez mais.
+
+Amor, hoje em dia eu não me vejo mais sem você. Mas não de uma forma dependente, sabe?
+Nem de um jeito tóxico, nada disso.
+
+Eu quero você livre, quero que você se sinta livre.
+Mas também quero você comigo.
+Quero que você escolha ficar comigo.
+Meus planos pro futuro já incluem você.
+
+(Meu Deus, eu não quero te perder... Eu amo tanto você que já não me vejo sem você.)
+
+O melhor de tudo, meu amor, é que eu tô pegando seus gostos — tô gostando de tarô, começando a gostar da Taylor (ainda não é muito a minha vibe, mas eu tô ouvindo bastante 😅).
+
+E o melhor de tudo é que eu já não sinto aquela dependência em você.
+Sinceramente, tô me sentindo tão melhor com isso, e ao mesmo tempo cada vez melhor por ter o seu amor.
+
+Um amor leve, que não é forçado — é intenso, mas suave pra nós dois.
+
+Enfim, meu bem... Eu te amo muito!
+Que esses 5 meses dobrem, tripliquem — e que o nosso namoro só termine no nosso casamento.
+
+Eu te amo, minha princesa maravilhosa. 💖`;
+
+    const textDiv = document.getElementById('text');
+    let i = 0;
+    function typeWriter() {
+      if (i < message.length) {
+        textDiv.innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+      }
+    }
+    typeWriter();
+
+    // === Corações flutuantes ===
+    const colors = ['#fff', '#ffb6c1', '#ff69b4', '#ff1493'];
+    const hearts = ["💖", "💘", "❤️", "💕", "💞", "💓", "💗"];
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+      heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+      heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 250);
+
+    // === Player do YouTube ===
+    let player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('yt-player');
+    }
+
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+
+    // === Botão de play/pause ===
+    const btn = document.getElementById('music-btn');
+    let playing = false;
+
+    btn.addEventListener('click', () => {
+      if (!player) return;
+      if (!playing) {
+        player.playVideo();
+        btn.innerText = '⏸️';
+      } else {
+        player.pauseVideo();
+        btn.innerText = '💖';
+      }
+      playing = !playing;
+    });
+  </script>
+</body>
+</html>
